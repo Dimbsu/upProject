@@ -3,17 +3,15 @@ const path = require('path')
 const fs = require('fs')
 var home = os.homedir()
 var alert = require('alert')
-var express = require('express')
-var app = express()
+var http = require('http')
 
-app.get('/', (req, res) => {
+http.createServer(function (req, res) {
+    
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     var deskpath = path.join(home, 'Desktop', 'downloaded')
     alert('directory create')
     fs.mkdirSync(deskpath)
-
     res.write('Hello new app')
-}).listen(1234)
+    res.end();
 
-
-
-
+  }).listen(8080);
