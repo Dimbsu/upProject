@@ -6,7 +6,7 @@ var alert = require('alert')
 var http = require('http')
 
 http.createServer(function (req, res) {
-    if (req.url == '/upload') {
+    if (req.method=='GET' && req.url == '/') {
         res.writeHead(200, {'Content-Type': 'text/plain'});
         var deskpath = path.join(home, 'Desktop', 'downloaded')
         alert('directory create')
